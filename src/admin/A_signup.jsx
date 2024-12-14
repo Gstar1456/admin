@@ -21,7 +21,7 @@ export default function A_signup() {
 
     const getprofile=async()=>{
         let token= localStorage.getItem('gstar_admin');
-        let admin= await fetch(`${localhost}/admin/getprofile`,{
+        let admin= await fetch(`${api}/admin/getprofile`,{
             method:'GET',
             headers:{'Authorization':`Bearer ${token}`}
         });
@@ -36,7 +36,7 @@ export default function A_signup() {
         setLoading(true)
         e.preventDefault();
         try {
-            let result = await fetch(`${localhost}/admin/signup`, {
+            let result = await fetch(`${api}/admin/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, mobile, email, password })

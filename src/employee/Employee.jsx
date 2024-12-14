@@ -63,7 +63,7 @@ export default function Employee() {
     const getprofile = async () => {
         let token = localStorage.getItem('gstar_employee');
         try {
-            let employee = await fetch(`${localhost}/employee/getprofile`, {
+            let employee = await fetch(`${api}/employee/getprofile`, {
                 method: 'GET',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -81,7 +81,7 @@ export default function Employee() {
     const addproduct = async () => {
         console.log(order)
         try {
-            let res = await fetch(`${localhost}/product/addproduct`, {
+            let res = await fetch(`${api}/product/addproduct`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ product: order, id: profile.name, editid:editid })
@@ -122,7 +122,7 @@ export default function Employee() {
         const [m, d, y] = date.split('/');
         date = `${y}-${m}-${d}`;
         console.log(date, profile._id)
-        let res = await fetch(`${localhost}/product/todayentry`, {
+        let res = await fetch(`${api}/product/todayentry`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: profile._id, date: date })
@@ -149,7 +149,7 @@ export default function Employee() {
             formData.append("uploadedby",profile.name) // Append the id here
 
             // Send POST request using fetch
-            const response = await fetch(`${localhost}/product/upload`, {
+            const response = await fetch(`${api}/product/upload`, {
                 method: "POST",
                 body: formData, // Send formData as the body
                 headers: {
@@ -183,7 +183,7 @@ const edit=(id)=>{
     };
     // const handleDownload =async (filename) => {
     //     try {
-    //         const response = await fetch(`${localhost}/product/download`, {
+    //         const response = await fetch(`${api}/product/download`, {
     //             method: "POST",
     //             body:JSON.stringify({filename}),
     //             headers:{'Content-Type':'application/json'}

@@ -130,7 +130,7 @@ export default function Products() {
     const getadminprofile = async () => {
         try {
            let adminToken= localStorage.getItem('gstar_admin')
-            let employee = await fetch(`${localhost}/admin/getprofile`, {
+            let employee = await fetch(`${api}/admin/getprofile`, {
                 method: 'GET',
                 headers: { 'Authorization': `Bearer ${adminToken}` }
             });
@@ -149,7 +149,7 @@ export default function Products() {
     const getprofile = async () => {
         try {
             let employeeToken= localStorage.getItem('gstar_employee')
-            let employee = await fetch(`${localhost}/employee/getprofile`, {
+            let employee = await fetch(`${api}/employee/getprofile`, {
                 method: 'GET',
                 headers: { 'Authorization': `Bearer ${employeeToken}` }
             });
@@ -166,7 +166,7 @@ export default function Products() {
     }
     const addproduct = async () => {
         try {
-            let res = await fetch(`${localhost}/product/addproduct`, {
+            let res = await fetch(`${api}/product/addproduct`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ product: order, id: profile.name, editid: editid })
@@ -203,7 +203,7 @@ export default function Products() {
     }
 
     const fetchproduct = async () => {
-        let res = await fetch(`${localhost}/product/allentry`, {
+        let res = await fetch(`${api}/product/allentry`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         })
@@ -231,7 +231,7 @@ export default function Products() {
             formData.append("id", id); // Append the id here
 
             // Send POST request using fetch
-            const response = await fetch(`${localhost}/product/upload`, {
+            const response = await fetch(`${api}/product/upload`, {
                 method: "POST",
                 body: formData, // Send formData as the body
                 headers: {
@@ -260,7 +260,7 @@ export default function Products() {
     };
     // const handleDownload =async (filename) => {
     //     try {
-    //         const response = await fetch(`${localhost}/product/download`, {
+    //         const response = await fetch(`${api}/product/download`, {
     //             method: "POST",
     //             body:JSON.stringify({filename}),
     //             headers:{'Content-Type':'application/json'}
