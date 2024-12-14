@@ -15,7 +15,7 @@ export default function Admin(){
     const getprofile=async()=>{
         let token= localStorage.getItem('gstar_admin');
        try{
-        let admin= await fetch(`${api}/admin/getprofile`,{
+        let admin= await fetch(`${localhost}/admin/getprofile`,{
             method:'GET',
             headers:{'Authorization':`Bearer ${token}`}
         });

@@ -14,7 +14,7 @@ export default function A_login(){
     const handleadminLogin=async()=>{
        if(amobile && apassword){
         try{
-            let result= await fetch(`${api}/admin/login`,{
+            let result= await fetch(`${localhost}/admin/login`,{
              method:'POST',
              headers:{'Content-Type':'application/json'},
              body:JSON.stringify({mobile:amobile,password:apassword})

@@ -17,7 +17,7 @@ function App() {
   const handleadminLogin=async()=>{
     if(amobile && apassword){
      try{
-         let result= await fetch(`${api}/admin/login`,{
+         let result= await fetch(`${localhost}/admin/login`,{
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({mobile:amobile,password:apassword})
@@ -38,7 +38,7 @@ function App() {
   if(mobile && password){
    setLoading(true)
    try{
-       let result= await fetch(`${api}/employee/login`,{
+       let result= await fetch(`${localhost}/employee/login`,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({mobile,password})

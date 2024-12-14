@@ -15,7 +15,7 @@ export default function E_login(){
        if(mobile && password){
         setLoading(true)
         try{
-            let result= await fetch(`${api}/employee/login`,{
+            let result= await fetch(`${localhost}/employee/login`,{
              method:'POST',
              headers:{'Content-Type':'application/json'},
              body:JSON.stringify({mobile,password})
